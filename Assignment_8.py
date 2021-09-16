@@ -25,3 +25,5 @@ def move(direction,location):
 
     else:
         print("Not a valid direction!")
+
+    return location
