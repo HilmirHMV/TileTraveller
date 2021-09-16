@@ -1,10 +1,9 @@
 # 1. Possible directions are evaluated
 # 2. Player selects a direction
-# 3. direction is evaluated, if false go to 2.
-# 4. Player moves to the new location
-# 5. If player is at location 3,1, he wins, else he goes to 1.
+# 3. Player moves to the new location
+# 4. If player is at location 3,1, he wins, else he goes to 1.
 
-# .1
+# 1. Possible directions are evaluated
 def evaluate_direction(location):
     if location == [1, 1] or location == [2,1]:
         possible_directions = "(N)orth."
@@ -26,54 +25,49 @@ def evaluate_direction(location):
 
     return possible_directions
 
-# 2.
+# 2. Player selects a direction
 def direction_selection(location):
 
-    location_string = location.split(" or ")
-    while True: #finna eitthvað annað en True
+    location_strings = location.split(" or ")
+    legal_selection = False
+    while legal_selection == False: 
+        print ("You can travel:", location)
         direction_selection = input('Direction:')
         upper_direction = direction_selection.upper()
-        for direction in location_string:
+        for direction in location_strings:
             if direction[1] == upper_direction:
-                return upper_direction
-        print("Not a valid direction!", direction[1], direction_selection)
-                    
+                legal_selection = direction[1]
+                break
 
-# 3.
- 
-    
-# 4.
-def move(direction,location):
-    if direction.lower == "n":
-        if location[1] == 3:
-            print("Not a valid direction!")
         else:
-            location[1] += 1
-
-    elif direction.lower == "s":
-        if location[1] == 1:
             print("Not a valid direction!")
-        else:
-            location[1] -= 1
+    return upper_direction
 
-    elif direction.lower == "e":
-        if location[0] == 3:
-            print("Not a valid direction!")
-        else:
-            location[0] += 1
+# 3. Player moves to the new location
+def player_move(direction,location):
+    if direction == "N":
+        location[1] += 1
 
-    elif direction.lower == "w":
-        if location[0] == 1:
-            print("Not a valid direction!")
-        else:
-            location[0] -= 1
+    elif direction == "S":
+        location[1] -= 1
 
-    else:
-        print("Not a valid direction!")
+    elif direction == "E":
+        location[0] += 1
+
+    elif direction == "W":
+        location[0] -= 1
 
     return location
 
+
+# Main program
 location = [1,1]
-location_string = evaluate_direction(location)
-print(location_string)
-direction_selection(location_string)
+
+# 4. If player is at location 3,1, he wins, else he goes to 1.
+while location != [3, 1]:
+    location_string = evaluate_direction(location)
+    player_selection = direction_selection(location_string)
+    location = player_move(player_selection, location)
+else:
+    print ("Victory!")
+
