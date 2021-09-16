@@ -42,12 +42,21 @@ def direction_selection(location):
     
     while legal_selection == False: 
         print ("You can travel:", location)
+<<<<<<< HEAD
         direction_selection = input("Direction: ")
         upper_direction = direction_selection.upper()
         for direction in location_strings:
             if direction[1] == upper_direction:
                 legal_selection = direction[1]
                 break
+=======
+        direction_selection = input('Direction: ')
+        upper_direction = direction_selection.upper()
+        for direction in location_strings:
+            if direction[1] == upper_direction:
+                return upper_direction
+
+>>>>>>> 4b4b1f1e588cc03536a1cdebc98ddd535c58cb07
         else:
             print("Not a valid direction!")
     
@@ -84,4 +93,3 @@ while location != [3, 1]:
     location = player_move(player_selection, location)
 else:
     print ("Victory!")
-
