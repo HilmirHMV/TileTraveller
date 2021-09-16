@@ -32,12 +32,12 @@ def direction_selection(location):
     location_string = location.split(" or ")
     while True: #finna eitthvað annað en True
         direction_selection = input('Direction:')
+        upper_direction = direction_selection.upper()
         for direction in location_string:
-            if direction[1] == direction_selection.upper:
-                return direction_selection
+            if direction[1] == upper_direction:
+                return upper_direction
         print("Not a valid direction!", direction[1], direction_selection)
-        
-                        
+                    
 
 # 3.
  
