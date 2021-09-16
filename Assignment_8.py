@@ -2,6 +2,7 @@
 # 2. Player selects a direction
 # 3. Player moves to the new location
 # 4. If player is at location 3,1, he wins, else he goes to 1.
+# https://github.com/HilmirHMV/TileTraveller.git
 
 # 1. Possible directions are evaluated
 def evaluate_direction(location):
@@ -32,7 +33,7 @@ def direction_selection(location):
     legal_selection = False
     while legal_selection == False: 
         print ("You can travel:", location)
-        direction_selection = input('Direction:')
+        direction_selection = input('Direction: ')
         upper_direction = direction_selection.upper()
         for direction in location_strings:
             if direction[1] == upper_direction:
