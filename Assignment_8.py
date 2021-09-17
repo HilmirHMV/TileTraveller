@@ -46,8 +46,8 @@ def direction_selection(location):
         upper_direction = direction_selection.upper()
         for direction in location_strings:
             if direction[1] == upper_direction:
-                legal_selection = direction[1]
-                break
+                return upper_direction
+                
         else:
             print("Not a valid direction!")
     
